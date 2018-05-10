@@ -13,7 +13,7 @@
         <scene sceneID="JJ3-1G-gtg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzJ-3h-Bnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="dQg-DX-bS5" sceneMemberID="viewController">
+                <tableViewController id="dQg-DX-bS5" customClass="TypeViewController" customModule="任务提醒软件" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RfI-4F-vmR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
