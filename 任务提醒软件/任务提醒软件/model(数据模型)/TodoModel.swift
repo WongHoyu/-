@@ -21,7 +21,7 @@ class TodoModel: NSObject {
     
     /// 创建模拟数据
     func onCreateData() {
-        for i in 1...10 {
+        for i in 0...9 {
             let name = "任务: \(i)"
             let type = TypeItem(name: name)
             typeList.append(type)

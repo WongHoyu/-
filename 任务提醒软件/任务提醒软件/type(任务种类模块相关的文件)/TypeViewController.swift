@@ -46,4 +46,20 @@ class TypeViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //获取选中行的数据
+        let typeItem = todoModel.typeList[indexPath.row]
+        
+        //视图跳转
+        self.tabBarController?.selectedIndex = 1
+        
+        //获取添加视图的导航控制器
+        let navigation = self.tabBarController?.viewControllers![1] as! UINavigationController
+        
+        //获取“添加”视图
+        let typeDetail = navigation.viewControllers.first as! TypeDetailViewController
+        
+        typeDetail.onEditType(item: typeItem)
+    }
+    
 }
