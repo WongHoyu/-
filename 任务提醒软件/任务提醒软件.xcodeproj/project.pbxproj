@@ -97,6 +97,9 @@
 		2AD1A6B820A1809100244808 /* 任务提醒软件 */ = {
 			isa = PBXGroup;
 			children = (
+				2AD1A6E920A1859C00244808 /* model(数据模型) */,
+				2AD1A6E820A1858100244808 /* todo(具体任务模块相关的文件) */,
+				2AD1A6E720A1855600244808 /* type(任务种类模块相关的文件) */,
 				2AD1A6B920A1809100244808 /* AppDelegate.swift */,
 				2AD1A6BB20A1809100244808 /* ViewController.swift */,
 				2AD1A6BD20A1809100244808 /* Main.storyboard */,
@@ -123,6 +126,27 @@
 				2AD1A6DB20A1809100244808 /* Info.plist */,
 			);
 			path = "任务提醒软件UITests";
+			sourceTree = "<group>";
+		};
+		2AD1A6E720A1855600244808 /* type(任务种类模块相关的文件) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "type(任务种类模块相关的文件)";
+			sourceTree = "<group>";
+		};
+		2AD1A6E820A1858100244808 /* todo(具体任务模块相关的文件) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "todo(具体任务模块相关的文件)";
+			sourceTree = "<group>";
+		};
+		2AD1A6E920A1859C00244808 /* model(数据模型) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "model(数据模型)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
