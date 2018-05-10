@@ -10,12 +10,9 @@ import UIKit
 
 class TypeViewController: UITableViewController {
     
-    //模拟数据
-    var typeList = [TypeItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        onCreateData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,13 +23,13 @@ class TypeViewController: UITableViewController {
     //设置tableView的行数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //返回数据条数
-        return typeList.count
+        return todoModel.typeList.count
     }
     
     //设置cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //获取行对应的数据
-        let typeItem = typeList[indexPath.row]
+        let typeItem = todoModel.typeList[indexPath.row]
         
         //为cell设置Identifier
         let cellIdentifier = "typeCell"
@@ -49,12 +46,4 @@ class TypeViewController: UITableViewController {
         return cell
     }
     
-    /// 创建模拟数据
-    func onCreateData() {
-        for i in 1...10 {
-            let name = "任务: \(i)"
-            let type = TypeItem(name: name)
-            typeList.append(type)
-        }
-    }
 }

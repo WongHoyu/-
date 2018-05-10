@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1620A3C95F006059AF /* TypeViewController.swift */; };
 		2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1820A3CEBA006059AF /* TypeItem.swift */; };
+		2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */; };
+		2A835D1D20A3DA4E006059AF /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1C20A3DA4E006059AF /* TodoModel.swift */; };
 		2AD1A6BA20A1809100244808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A6B920A1809100244808 /* AppDelegate.swift */; };
 		2AD1A6BC20A1809100244808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A6BB20A1809100244808 /* ViewController.swift */; };
 		2AD1A6BF20A1809100244808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1A6BD20A1809100244808 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		2A835D1620A3C95F006059AF /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
 		2A835D1820A3CEBA006059AF /* TypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeItem.swift; sourceTree = "<group>"; };
+		2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
+		2A835D1C20A3DA4E006059AF /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		2AD1A6B620A1809100244808 /* 任务提醒软件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "任务提醒软件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD1A6B920A1809100244808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD1A6BB20A1809100244808 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2A835D1620A3C95F006059AF /* TypeViewController.swift */,
+				2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */,
 			);
 			path = "type(任务种类模块相关的文件)";
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 		2AD1A6E920A1859C00244808 /* model(数据模型) */ = {
 			isa = PBXGroup;
 			children = (
+				2A835D1C20A3DA4E006059AF /* TodoModel.swift */,
 				2A835D1820A3CEBA006059AF /* TypeItem.swift */,
 			);
 			path = "model(数据模型)";
@@ -289,7 +295,9 @@
 				2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */,
 				2AD1A6BC20A1809100244808 /* ViewController.swift in Sources */,
 				2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */,
+				2A835D1D20A3DA4E006059AF /* TodoModel.swift in Sources */,
 				2AD1A6BA20A1809100244808 /* AppDelegate.swift in Sources */,
+				2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
