@@ -38,7 +38,7 @@ class TypeViewController: UITableViewController {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         
         //设置cell的标题
-        cell.textLabel?.text = "任务分类:\(indexPath.row)"
+        cell.textLabel?.text = "任务:\(indexPath.row)"
         
         //设置cell的缩略图
         cell.imageView?.image = UIImage(named: typeItem.icon)

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TypeDetailViewController: UITableViewController {
+class TypeDetailViewController: UITableViewController, ProtocolIconView {
+    
     //定义一个TypeItem类型的属性
     var typeItem:TypeItem = TypeItem(name: "")
     
@@ -102,12 +103,30 @@ class TypeDetailViewController: UITableViewController {
         self.textField.text = self.typeItem.name
     }
     
-    
+    //检测界面切换
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //获取切换目标
+        let controller = segue.destination as! IconViewController
+        //设置代理
+        controller.delegate = self
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+    
+    /// 设置图标
+    ///
+    /// - Parameter iconName: 图标名称
+    func iconPicker(didPickIcon iconName: String) {
+        typeItem.icon = iconName
+        iconImageView.image = UIImage(named: iconName)
+        //关闭选择图标界面
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+   
 
     
 
