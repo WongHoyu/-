@@ -62,4 +62,15 @@ class TypeViewController: UITableViewController {
         typeDetail.onEditType(item: typeItem)
     }
     
+    //滑动删除
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //删除数据
+        todoModel.typeList.remove(at: indexPath.row)
+        
+        //删除数据的位置标识数组
+        let indexPaths = [indexPath]
+        
+        //通知视图删除的数据，同时显示删除动画
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
 }

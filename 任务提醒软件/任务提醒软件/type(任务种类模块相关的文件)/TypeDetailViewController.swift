@@ -24,8 +24,9 @@ class TypeDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1")
+        onUpdate()
         isLoad = true
+        
     }
     
     @IBAction func done(_ sender: Any) {
@@ -35,16 +36,18 @@ class TypeDetailViewController: UITableViewController {
         if isAdd {
             //将新的分类加进分类数组
             todoModel.onAddType(type: typeItem)
+        } else {
+            //获取任务分类视图的导航控制器
+            let navigation = self.tabBarController?.viewControllers![0] as! UINavigationController
+            
+            //获取任务分类视图
+            let typeView = navigation.viewControllers.first as! TypeViewController
+            
+            //更新任务分类视图的数据
+            typeView.tableView.reloadData()
+            
         }
         
-        //获取任务分类视图的导航控制器
-        let navigation = self.tabBarController?.viewControllers![0] as! UINavigationController
-        
-        //获取任务分类视图
-        let typeView = navigation.viewControllers.first as! TypeViewController
-        
-        //更新任务分类视图的数据
-        typeView.tableView.reloadData()
         
         //界面跳转
         self.tabBarController?.selectedIndex = 0
@@ -81,10 +84,14 @@ class TypeDetailViewController: UITableViewController {
         
         //接收传过来的分类数据
         self.typeItem = item
-        print("3")
+        
         //如果视图没有被加载过则放入viewDidLoad进行执行
+        
+        /**
+         第一次点击，isLoad是等于false，所以没办法执行onUpdate
+         已经解决：在viewDidload中添加onUpdate()
+         */
         if isLoad {
-            print("2")
             onUpdate()
         }
         
