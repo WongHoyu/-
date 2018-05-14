@@ -6,7 +6,8 @@
 
 + 书本代码bug: 在TypeDetailViewController类中,进入`添加`页面，点击确认后是无法跟新数据的。  
   后来我把else注释掉，就可以无论是编辑还是添加任务，都需要reloadData()->跟新数据了。  
-  
+  下面代码为我修改后的代码
+  
 ```
    @IBAction func done(_ sender: Any) {
         //获取分类名称
@@ -25,5 +26,5 @@
 
         //更新任务分类视图的数据
         typeView.tableView.reloadData()
-'''
+```
 
