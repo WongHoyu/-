@@ -2,4 +2,5 @@
 ## - swift语言实践晋级第6章
 ### 三周完成这个项目 现在是第一周！
 #### 不会写markdown，很抱歉
-//FIXME:写到这里为之，出现了一个bug，暂时未知isLoad存在的意义，但是因为isLoad在第一次点击编辑，进到编辑页面时，isLoad还是false,导致第一次进入编辑页面，是没有数据的。过几天看看isLoad存在的意义，再做修改。
++ 之前说的第一次点击进入编辑页面无法获取数据已经解决，在TypeDetailViewController的viewDidlog()里添加onUpdate()
+
