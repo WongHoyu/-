@@ -138,6 +138,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="添加" id="QiM-Cv-TzY">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="P7V-ii-X6h">
+                            <connections>
+                                <action selector="cancel:" destination="wkt-Tc-YbW" id="XTV-S7-2X5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="确定" id="Jx9-Xq-rik">
                             <connections>
                                 <action selector="done:" destination="wkt-Tc-YbW" id="9uq-Fr-SHk"/>

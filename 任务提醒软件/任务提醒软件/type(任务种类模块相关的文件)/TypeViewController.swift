@@ -46,31 +46,54 @@ class TypeViewController: UITableViewController {
         return cell
     }
     
+    //点击cell，跳转到编辑页面
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //获取选中行的数据
-        let typeItem = todoModel.typeList[indexPath.row]
         
-        //视图跳转
-        self.tabBarController?.selectedIndex = 1
-        
-        //获取添加视图的导航控制器
-        let navigation = self.tabBarController?.viewControllers![1] as! UINavigationController
-        
-        //获取“添加”视图
-        let typeDetail = navigation.viewControllers.first as! TypeDetailViewController
-        
-        typeDetail.onEditType(item: typeItem)
     }
     
-    //滑动删除
+    //原滑动删除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //删除数据
-        todoModel.typeList.remove(at: indexPath.row)
         
-        //删除数据的位置标识数组
-        let indexPaths = [indexPath]
+    }
+
+    
+    //滑动删除与编辑
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var editAction = UITableViewRowAction(style: .default, title: "编辑") {
+            (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
+            //获取选中的数据
+            var typeItem = todoModel.typeList[indexPath.row]
+            
+            //获取添加视图的导航控制器
+            let navigation = self.tabBarController?.viewControllers![1] as! UINavigationController
+         
+            //获取"添加"视图
+            let typeDetail = navigation.viewControllers.first as! TypeDetailViewController
+            typeDetail.onEditType(item: typeItem)
+            
+            //视图跳转
+            self.tabBarController?.selectedIndex = 1
+            
+        }
+        var deleteAction = UITableViewRowAction(style: .normal, title: "删除") {
+            (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
+            
+            //删除数据
+            todoModel.typeList.remove(at: indexPath.row)
+            
+            //删除数据的位置标识数组
+            let indexPaths = [indexPath]
+            
+            //通知视图删除的数据，同时显示删除动画
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+        }
         
-        //通知视图删除的数据，同时显示删除动画
-        tableView.deleteRows(at: indexPaths, with: .automatic)
+        //设置背景颜色
+        //亮灰色
+        editAction.backgroundColor = UIColor.lightGray
+        //红色
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [deleteAction, editAction]
     }
 }
