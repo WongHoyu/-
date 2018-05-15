@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A25AA6520AAACF8001A5D2B /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25AA6420AAACF8001A5D2B /* TodoListController.swift */; };
+		2A25AA6720AAAD99001A5D2B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25AA6620AAAD99001A5D2B /* TodoItem.swift */; };
 		2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1620A3C95F006059AF /* TypeViewController.swift */; };
 		2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1820A3CEBA006059AF /* TypeItem.swift */; };
 		2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A25AA6420AAACF8001A5D2B /* TodoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListController.swift; sourceTree = "<group>"; };
+		2A25AA6620AAAD99001A5D2B /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		2A835D1620A3C95F006059AF /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
 		2A835D1820A3CEBA006059AF /* TypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeItem.swift; sourceTree = "<group>"; };
 		2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		2AD1A6E820A1858100244808 /* todo(具体任务模块相关的文件) */ = {
 			isa = PBXGroup;
 			children = (
+				2A25AA6420AAACF8001A5D2B /* TodoListController.swift */,
 			);
 			path = "todo(具体任务模块相关的文件)";
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				2A835D1C20A3DA4E006059AF /* TodoModel.swift */,
 				2A835D1820A3CEBA006059AF /* TypeItem.swift */,
+				2A25AA6620AAAD99001A5D2B /* TodoItem.swift */,
 			);
 			path = "model(数据模型)";
 			sourceTree = "<group>";
@@ -296,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */,
+				2A25AA6720AAAD99001A5D2B /* TodoItem.swift in Sources */,
+				2A25AA6520AAACF8001A5D2B /* TodoListController.swift in Sources */,
 				2AD1A6BC20A1809100244808 /* ViewController.swift in Sources */,
 				2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */,
 				2A835D1D20A3DA4E006059AF /* TodoModel.swift in Sources */,

@@ -9,6 +9,9 @@
 import UIKit
 
 class TypeItem: NSObject {
+    //任务清单数据
+    var items = [TodoItem]()
+    
     //任务分类
     var name:String = ""
     

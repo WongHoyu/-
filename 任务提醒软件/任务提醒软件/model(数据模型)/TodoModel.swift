@@ -21,11 +21,19 @@ class TodoModel: NSObject {
     
     /// 创建模拟数据
     func onCreateData() {
-        for i in 0...9 {
+        for i in 1...10 {
             let name = "任务: \(i)"
             let type = TypeItem(name: name)
+            for j in 0...4 {
+                let todo = TodoItem(text: "任务清单: \(j)", checked: false, dueDate: Date(), shouldRemind: true, level: 0)
+                type.items.append(todo)
+            }
             typeList.append(type)
         }
+    }
+    
+    class func nextTodoItemId() -> Int {
+        return 0
     }
     
     /// 增加分类的方法

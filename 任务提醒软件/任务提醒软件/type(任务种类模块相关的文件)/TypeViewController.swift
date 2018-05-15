@@ -48,7 +48,20 @@ class TypeViewController: UITableViewController {
     
     //点击cell，跳转到编辑页面
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //获取选中行的数据
+        let type = todoModel.typeList[indexPath.row]
         
+        //可以将任何东西放入sender，对应prepareForSegue中的sender
+        self.performSegue(withIdentifier: "showTodoList", sender: type)
+    }
+    
+    //segue切换，传参
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //获取跳转目标
+        let controller = segue.destination as! TodoListController
+        
+        //给目标传参
+        controller.todoList = sender as? TypeItem
     }
     
     //原滑动删除
