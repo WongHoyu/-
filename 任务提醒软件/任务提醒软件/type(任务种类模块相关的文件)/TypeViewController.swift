@@ -14,6 +14,11 @@ class TypeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //重新加载数据
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,10 +43,25 @@ class TypeViewController: UITableViewController {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         
         //设置cell的标题
-        cell.textLabel?.text = "任务:\(indexPath.row)"
+        cell.textLabel?.text = typeItem.name
         
         //设置cell的缩略图
         cell.imageView?.image = UIImage(named: typeItem.icon)
+        
+        //返回有多少个任务代办需要提醒
+        let count = typeItem.countUncheckedItems()
+        
+        //根据不同的情况显示不同的副标题
+        if typeItem.items.count == 0 {
+            //如果还没有添加任务
+            cell.detailTextLabel?.text = "还没有添加任务"
+        } else {
+            if count == 0 {
+                cell.detailTextLabel?.text = "全部搞定"
+            } else {
+                cell.detailTextLabel?.text = "还有 \(count) 个任务要完成"
+            }
+        }
         
         return cell
     }
@@ -72,10 +92,10 @@ class TypeViewController: UITableViewController {
     
     //滑动删除与编辑
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        var editAction = UITableViewRowAction(style: .default, title: "编辑") {
+        let editAction = UITableViewRowAction(style: .default, title: "编辑") {
             (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
             //获取选中的数据
-            var typeItem = todoModel.typeList[indexPath.row]
+            let typeItem = todoModel.typeList[indexPath.row]
             
             //获取添加视图的导航控制器
             let navigation = self.tabBarController?.viewControllers![1] as! UINavigationController
@@ -88,7 +108,7 @@ class TypeViewController: UITableViewController {
             self.tabBarController?.selectedIndex = 1
             
         }
-        var deleteAction = UITableViewRowAction(style: .normal, title: "删除") {
+        let deleteAction = UITableViewRowAction(style: .normal, title: "删除") {
             (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
             
             //删除数据
@@ -109,4 +129,6 @@ class TypeViewController: UITableViewController {
         
         return [deleteAction, editAction]
     }
+    
+    
 }

@@ -42,7 +42,7 @@ class TodoListController: UITableViewController {
         return cell
     }
     
-    //设置check勾选
+    ///设置check勾选
     func onCheckMark(cell:UITableViewCell, item:TodoItem) {
         //根据Tag获取cell中的checkbox
         let check = cell.viewWithTag(1002) as! UIImageView
