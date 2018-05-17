@@ -42,6 +42,22 @@ class TodoListController: UITableViewController {
         return cell
     }
     
+    //滑动删除
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //删除数据
+        todoList?.items.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        
+        //通知视图删除的数据，同时显示删除动画
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    //改变滑动删除显示的删除文字
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
     ///设置check勾选
     func onCheckMark(cell:UITableViewCell, item:TodoItem) {
         //根据Tag获取cell中的checkbox
