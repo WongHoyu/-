@@ -27,6 +27,10 @@ class TodoDetailController: UITableViewController {
         super.viewDidLoad()
         if isAdd {
             todoItem = TodoItem()
+        } else {
+            self.title = "编辑任务"
+            textField.text = todoItem.text
+            switchControl.isOn = todoItem.shouldRemind
         }
         upDateDueDateLabel()
         
@@ -43,6 +47,9 @@ class TodoDetailController: UITableViewController {
         if isAdd {
             //新增数据
             delegate?.addItem(item: todoItem)
+        } else {
+            //同时修改数据中的text为文本框编辑后的内容
+            delegate?.editItem()
         }
         
         self.presentingViewController?.dismiss(animated: true, completion: nil)

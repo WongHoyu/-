@@ -116,11 +116,12 @@ class TodoListController: UITableViewController, ProtocolTodoDetail {
     /// - Parameter item: todoItem
     func addItem(item: TodoItem) {
         todoList?.items.append(item)
+        self.tableView.reloadData()
     }
     
     /// 修改任务
     func editItem() {
-        
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
