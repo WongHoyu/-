@@ -8,8 +8,8 @@
   后来我把else注释掉，就可以无论是编辑还是添加任务，都需要reloadData()->跟新数据了。  
   下面代码为我修改后的代码
   
-```
-   @IBAction func done(_ sender: Any) {
+```Swift
+   @IBAction func done(_ sender: Any) {
         //获取分类名称
         typeItem.name = textField.text!
         
@@ -28,3 +28,13 @@
         typeView.tableView.reloadData()
 ```
 
++ 按着书本源码写，在添加任务界面按确定后，返回任务清单界面，数据却无法立刻更新。
+我作了以下修改:  
+在TodoListController类中，继承的ProtocolTodoDetail协议下的addItem方法:
+```Swift
+func addItem(item: TodoItem) {
+        todoList?.items.append(item)
+        //我添加了下面的方法，数据就会在跳转到这个界面时更新数据
+        self.tableView.reloadData()
+    }
+```
