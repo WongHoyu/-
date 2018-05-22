@@ -11,6 +11,8 @@ import UIKit
 class TodoDetailController: UITableViewController {
     //添加还是编辑状态
     var isAdd:Bool = true
+    //日期选择器是否隐藏
+    var datePickerVisible:Bool = false
     //储存任务数据
     var todoItem = TodoItem()
     //代理
@@ -56,8 +58,72 @@ class TodoDetailController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return super.tableView(tableView, numberOfRowsInSection: section)
+        if section == 1 && datePickerVisible {
+            return 4
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
     }
+    
+    //选择cell的row之后
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        textField.resignFirstResponder()
+        //当执行到日期选择器上一行的时候，可以判断是否要显示日期选择器了
+        if indexPath.section == 1 && indexPath.row == 2 {
+            if !datePickerVisible {
+                self.showDatePicker()
+            } else {
+                self.hideDatePicker()
+            }
+        }
+    }
+    
+    //设置cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //因为日期选择器的位置在日期显示Label下面。他的位置就是第二个section和第4个row
+        if indexPath.section == 1 && indexPath.row == 3 {
+            //用重用的方法获取标识符为DatePickerCell的cell
+            var cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell")
+            
+            //如果没找到就创建一个
+            if cell == nil {
+                cell = UITableViewCell(style: .default, reuseIdentifier: "DatePickerCell")
+                //设置cell的样式
+                cell?.selectionStyle = .none
+                //创建日期选择器
+                let datePicker = UIDatePicker(frame: CGRect(x: 0.0, y: 0.0, width: 320.0, height: 216.0))
+                //给日期选择器的tag
+                datePicker.tag = 100
+                //将日期选择日期加入cell
+                cell?.contentView.addSubview(datePicker)
+                datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+            }
+            return cell!
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //当渲染到达日期选择器所在的cell的时候将cell的高度设为217
+        if indexPath.section == 1 && indexPath.row == 3 {
+            return 217.0
+        } else {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+        if indexPath.section == 1 && indexPath.row == 3 {
+            //当执行到日期选择器所在的indexPath就创建一个indexPath然后强行插入
+            let newIndexPath = IndexPath(row: 0, section: indexPath.section)
+            return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
+        } else {
+            return super.tableView(tableView, indentationLevelForRowAt: indexPath)
+        }
+    }
+    
     
     //跟新显示时间的label
     func upDateDueDateLabel() {
@@ -65,6 +131,32 @@ class TodoDetailController: UITableViewController {
         //日期样式
         formatter.dateFormat = "yyyy年MM月DD日 HH:mm:ss"
         self.dueDateLabel.text = formatter.string(from: todoItem.dueDate)
+    }
+    
+    /// 显示日期选择器
+    func showDatePicker() {
+        //日期选择器的状态设为打开
+        datePickerVisible = true
+        
+        let indexPathDatePicker = IndexPath(row: 3, section: 1)
+        self.tableView.insertRows(at: [indexPathDatePicker], with: .automatic)
+    }
+    
+    /// 隐藏日期选择器
+    func hideDatePicker() {
+        if datePickerVisible {
+            // 日期选择器的状态设为关闭
+            datePickerVisible = false
+            let indexPathDatePicker = IndexPath(row: 3, section: 1)
+            self.tableView.deleteRows(at: [indexPathDatePicker], with: .fade)
+        }
+    }
+    
+    @objc func dateChange(datePicker: UIDatePicker) {
+        //改变dueDate
+        todoItem.dueDate = datePicker.date
+        //更新提醒时间文本框
+        upDateDueDateLabel()
     }
     
     override func didReceiveMemoryWarning() {
