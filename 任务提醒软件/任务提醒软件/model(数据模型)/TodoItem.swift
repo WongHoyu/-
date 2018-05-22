@@ -28,7 +28,7 @@ class TodoItem: NSObject {
     var level:Int = 0
     
     //构造方法
-    init(text:String, checked:Bool, dueDate:Date, shouldRemind:Bool, level:Int) {
+    init(text:String = "", checked:Bool = false, dueDate:Date = Date(), shouldRemind:Bool = false, level:Int = 0) {
         self.text = text
         self.checked = checked
         self.dueDate = dueDate

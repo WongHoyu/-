@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A25AA6520AAACF8001A5D2B /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25AA6420AAACF8001A5D2B /* TodoListController.swift */; };
 		2A25AA6720AAAD99001A5D2B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25AA6620AAAD99001A5D2B /* TodoItem.swift */; };
+		2A25AA6920AD0412001A5D2B /* TodoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25AA6820AD0412001A5D2B /* TodoDetailController.swift */; };
 		2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1620A3C95F006059AF /* TypeViewController.swift */; };
 		2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1820A3CEBA006059AF /* TypeItem.swift */; };
 		2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2A25AA6420AAACF8001A5D2B /* TodoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListController.swift; sourceTree = "<group>"; };
 		2A25AA6620AAAD99001A5D2B /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		2A25AA6820AD0412001A5D2B /* TodoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailController.swift; sourceTree = "<group>"; };
 		2A835D1620A3C95F006059AF /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
 		2A835D1820A3CEBA006059AF /* TypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeItem.swift; sourceTree = "<group>"; };
 		2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				2A25AA6420AAACF8001A5D2B /* TodoListController.swift */,
+				2A25AA6820AD0412001A5D2B /* TodoDetailController.swift */,
 			);
 			path = "todo(具体任务模块相关的文件)";
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A25AA6920AD0412001A5D2B /* TodoDetailController.swift in Sources */,
 				2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */,
 				2A25AA6720AAAD99001A5D2B /* TodoItem.swift in Sources */,
 				2A25AA6520AAACF8001A5D2B /* TodoListController.swift in Sources */,

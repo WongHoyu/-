@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListController: UITableViewController {
+class TodoListController: UITableViewController, ProtocolTodoDetail {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,42 @@ class TodoListController: UITableViewController {
         
         //取消选中状态
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //界面跳转时，设置数据
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //通过segue的标识获得导航控制器
+        let navigationController = segue.destination as! UINavigationController
+        
+        //通过导航控制器的topViewController属性获得跳转目标
+        let controller = navigationController.topViewController as! TodoDetailController
+        
+        //设置代理
+        controller.delegate = self
+        let segueStr = "\(segue.identifier!)"
+        if segueStr == "AddItem" {
+            //设置状态为添加任务
+            controller.isAdd = true
+        } else if segueStr == "EditItem" {
+            //获取indexPath
+            let indexPath = self.tableView.indexPath(for: sender! as! UITableViewCell)
+            
+            //将要编辑的Model传给新界面
+            controller.todoItem = todoList!.items[indexPath!.row]
+            controller.isAdd = false
+        }
+    }
+    
+    /// 增加任务
+    ///
+    /// - Parameter item: todoItem
+    func addItem(item: TodoItem) {
+        todoList?.items.append(item)
+    }
+    
+    /// 修改任务
+    func editItem() {
+        
     }
     
     override func didReceiveMemoryWarning() {
