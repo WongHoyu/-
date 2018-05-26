@@ -15,6 +15,8 @@
 		2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */; };
 		2A835D1D20A3DA4E006059AF /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1C20A3DA4E006059AF /* TodoModel.swift */; };
 		2A835D1F20A5EDF4006059AF /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A835D1E20A5EDF4006059AF /* IconViewController.swift */; };
+		2ABD772D20B65EB400442F86 /* TodoLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD772C20B65EB400442F86 /* TodoLevelController.swift */; };
+		2ABD772F20B65F3C00442F86 /* LevelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD772E20B65F3C00442F86 /* LevelItem.swift */; };
 		2AD1A6BA20A1809100244808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A6B920A1809100244808 /* AppDelegate.swift */; };
 		2AD1A6BC20A1809100244808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A6BB20A1809100244808 /* ViewController.swift */; };
 		2AD1A6BF20A1809100244808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1A6BD20A1809100244808 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		2A835D1A20A3D3AF006059AF /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
 		2A835D1C20A3DA4E006059AF /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		2A835D1E20A5EDF4006059AF /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
+		2ABD772C20B65EB400442F86 /* TodoLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoLevelController.swift; sourceTree = "<group>"; };
+		2ABD772E20B65F3C00442F86 /* LevelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelItem.swift; sourceTree = "<group>"; };
 		2AD1A6B620A1809100244808 /* 任务提醒软件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "任务提醒软件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD1A6B920A1809100244808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD1A6BB20A1809100244808 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				2A25AA6420AAACF8001A5D2B /* TodoListController.swift */,
 				2A25AA6820AD0412001A5D2B /* TodoDetailController.swift */,
+				2ABD772C20B65EB400442F86 /* TodoLevelController.swift */,
 			);
 			path = "todo(具体任务模块相关的文件)";
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				2A835D1C20A3DA4E006059AF /* TodoModel.swift */,
 				2A835D1820A3CEBA006059AF /* TypeItem.swift */,
 				2A25AA6620AAAD99001A5D2B /* TodoItem.swift */,
+				2ABD772E20B65F3C00442F86 /* LevelItem.swift */,
 			);
 			path = "model(数据模型)";
 			sourceTree = "<group>";
@@ -305,11 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A25AA6920AD0412001A5D2B /* TodoDetailController.swift in Sources */,
+				2ABD772F20B65F3C00442F86 /* LevelItem.swift in Sources */,
 				2A835D1720A3C95F006059AF /* TypeViewController.swift in Sources */,
 				2A25AA6720AAAD99001A5D2B /* TodoItem.swift in Sources */,
 				2A25AA6520AAACF8001A5D2B /* TodoListController.swift in Sources */,
 				2AD1A6BC20A1809100244808 /* ViewController.swift in Sources */,
 				2A835D1920A3CEBA006059AF /* TypeItem.swift in Sources */,
+				2ABD772D20B65EB400442F86 /* TodoLevelController.swift in Sources */,
 				2A835D1D20A3DA4E006059AF /* TodoModel.swift in Sources */,
 				2AD1A6BA20A1809100244808 /* AppDelegate.swift in Sources */,
 				2A835D1B20A3D3AF006059AF /* TypeDetailViewController.swift in Sources */,

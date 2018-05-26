@@ -37,7 +37,10 @@ class TodoListController: UITableViewController, ProtocolTodoDetail {
         let label = cell.viewWithTag(1000) as! UILabel
         
         //设置label内容
-        label.text = item?.text
+        label.text = item!.text + "\(LevelItem.onGetTitle(level: item!.level))"
+        
+        //设置cell的勾选状态
+        onCheckMark(cell: cell, item: item!)
         
         return cell
     }

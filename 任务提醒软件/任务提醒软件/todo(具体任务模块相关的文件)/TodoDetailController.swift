@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoDetailController: UITableViewController {
+class TodoDetailController: UITableViewController, ProtocolLevel {
     //添加还是编辑状态
     var isAdd:Bool = true
     //日期选择器是否隐藏
@@ -36,6 +36,9 @@ class TodoDetailController: UITableViewController {
         }
         upDateDueDateLabel()
         
+        labLevel.text = LevelItem
+        .onGetTitle(level: todoItem.level)
+        
     }
     
     //cancel按钮响应方法
@@ -57,6 +60,7 @@ class TodoDetailController: UITableViewController {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - override
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 && datePickerVisible {
             return 4
@@ -124,13 +128,24 @@ class TodoDetailController: UITableViewController {
         }
     }
     
+    //连线跳转
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //获取跳转目标
+        let controller = segue.destination as! TodoLevelController
+        //设置代理
+        controller.delegate = self
+        //传参并生成数据
+        controller.onSetCheckMark(level: self.todoItem.level)
+    }
     
-    //跟新显示时间的label
+    
+    //跟新显示时间的label4
     func upDateDueDateLabel() {
         let formatter = DateFormatter()
         //日期样式
-        formatter.dateFormat = "yyyy年MM月DD日 HH:mm:ss"
-        self.dueDateLabel.text = formatter.string(from: todoItem.dueDate)
+        formatter.dateFormat = "YYYY年 MM月 dd日 HH:mm:ss"
+        dueDateLabel.text = formatter.string(from: todoItem.dueDate)
+        print(todoItem.dueDate)
     }
     
     /// 显示日期选择器
@@ -159,11 +174,15 @@ class TodoDetailController: UITableViewController {
         upDateDueDateLabel()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //实现ProtocolLevel协议索要的方法
+    func onGetLevel(levelItem: LevelItem) {
+        //更新重要级别的文本标签
+        labLevel.text = levelItem.title
+        //跟新todoItem中的级别
+        todoItem.level = levelItem.level
+        //关闭级别选择界面
+        self.navigationController?.popViewController(animated: true)
     }
-
 }
 
 //用于回调数据

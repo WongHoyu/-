@@ -9,7 +9,6 @@
 import UIKit
 
 class TypeDetailViewController: UITableViewController, UITextFieldDelegate, ProtocolIconView {
-    
     //定义一个TypeItem类型的属性
     var typeItem:TypeItem = TypeItem(name: "")
     
@@ -138,10 +137,7 @@ class TypeDetailViewController: UITableViewController, UITextFieldDelegate, Prot
         return true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
+
 
 }
 
