@@ -1,6 +1,6 @@
 # - 第一次将项目提交到Github上
 ## - swift语言实践晋级第6章  Swift4.0版本！！书本是swift2.0，太老了。
-### 三周完成这个项目 现在是第一周！
+### 三周完成这个项目 2018年5月26日提交！
 #### 不会写markdown，很抱歉
 + 之前说的第一次点击进入编辑页面无法获取数据已经解决，在TypeDetailViewController的viewDidlog()里添加onUpdate()
 
@@ -50,3 +50,5 @@ func addItem(item: TodoItem) {
     //日期样式, 修改后    
     formatter.dateFormat = "YYYY年 MM月 dd日 HH:mm:ss"  
 ```
+  
++ 当写到保存数据到本地， 读取本地数据时，出现了错误抛出。还没找到原因。所以只用了假数据 
