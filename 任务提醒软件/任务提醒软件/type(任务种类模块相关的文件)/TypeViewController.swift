@@ -127,6 +127,9 @@ class TypeViewController: UITableViewController {
         //红色
         deleteAction.backgroundColor = UIColor.red
         
+        //保存数据
+        todoModel.saveData()
+        
         return [deleteAction, editAction]
     }
     

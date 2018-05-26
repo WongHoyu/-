@@ -32,6 +32,34 @@ class TodoModel: NSObject {
         }
     }
     
+    /// 获取沙盒路径
+    func documentsDirectory() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory:String = paths.first!
+        print(documentsDirectory)
+        return documentsDirectory
+    }
+    
+    /// 获取数据文件地址
+    func dataFilePath() -> String{
+        return documentsDirectory() + "todo.plist"
+    }
+    
+    /// 保存数据
+    func saveData() {
+        let data = NSMutableData()
+        //声明一个归档处理对象
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        //将lists以对应Checklist关键字进行编码
+        archiver.encode(typeList, forKey: "todolist")
+        //编码结束
+        archiver.finishEncoding()
+        //数据写入
+        data.write(toFile: dataFilePath(), atomically: true)
+    }
+    
+    
+    
     class func nextTodoItemId() -> Int {
         return 0
     }
@@ -42,6 +70,8 @@ class TodoModel: NSObject {
     func onAddType(type:TypeItem) {
         typeList.append(type)
     }
+    
+
 }
 
 //创建全局数据

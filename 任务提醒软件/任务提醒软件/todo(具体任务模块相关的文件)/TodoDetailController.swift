@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoDetailController: UITableViewController, ProtocolLevel {
+class TodoDetailController: UITableViewController, ProtocolLevel, UITextFieldDelegate {
     //添加还是编辑状态
     var isAdd:Bool = true
     //日期选择器是否隐藏
@@ -29,20 +29,21 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
         super.viewDidLoad()
         if isAdd {
             todoItem = TodoItem()
+            doneButton.isEnabled = false
         } else {
             self.title = "编辑任务"
             textField.text = todoItem.text
             switchControl.isOn = todoItem.shouldRemind
         }
+        textField.delegate = self
+        textField.becomeFirstResponder()
+        labLevel.text = LevelItem.onGetTitle(level: todoItem.level)
         upDateDueDateLabel()
-        
-        labLevel.text = LevelItem
-        .onGetTitle(level: todoItem.level)
-        
     }
     
     //cancel按钮响应方法
     @IBAction func cancel(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     //Done按钮响应方法
@@ -61,6 +62,7 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
     }
     
     // MARK: - override
+    //根据日期选择器的隐藏与否决定返回的row的数量
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 && datePickerVisible {
             return 4
@@ -109,6 +111,7 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
         }
     }
     
+    //因为日期选择器插入后会引起cell高度的变化，所以要重新设置
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //当渲染到达日期选择器所在的cell的时候将cell的高度设为217
         if indexPath.section == 1 && indexPath.row == 3 {
@@ -118,6 +121,7 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
         }
     }
     
+    //当覆盖了静态的cell数据源方法时需要提供一个代理方法。因为数据源对新加进来的日期选择器的cell一无所知，所以要使用这个代理方法
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
         if indexPath.section == 1 && indexPath.row == 3 {
             //当执行到日期选择器所在的indexPath就创建一个indexPath然后强行插入
@@ -167,6 +171,7 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
         }
     }
     
+    //日期选择器响应方法
     @objc func dateChange(datePicker: UIDatePicker) {
         //改变dueDate
         todoItem.dueDate = datePicker.date
@@ -182,6 +187,16 @@ class TodoDetailController: UITableViewController, ProtocolLevel {
         todoItem.level = levelItem.level
         //关闭级别选择界面
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //textField将要改变的时候响应的函数
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //获取文本框内最新的文本
+        let newText = textField.text!.replacingCharacters(in: range.toRange(string: textField.text!), with: string)
+        //通过计算文本框内的字符数来决定确认按钮是否激活
+        doneButton.isEnabled = newText.count > 0
+        
+        return true
     }
 }
 

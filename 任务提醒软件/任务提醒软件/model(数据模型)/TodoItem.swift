@@ -42,4 +42,24 @@ class TodoItem: NSObject {
     func onChangeChecked() {
         self.checked = !self.checked
     }
+    
+    //从nsobject解析回来
+    init(coder aDecoder:NSCoder!) {
+        self.text = aDecoder.decodeObject(forKey: "Text") as! String
+        self.checked = aDecoder.decodeObject(forKey: "Checked") as! Bool
+        self.dueDate = aDecoder.decodeObject(forKey: "DueDate") as! Date
+        self.shouldRemind = aDecoder.decodeObject(forKey: "ShouldRemaind") as! Bool
+        self.itemId = aDecoder.decodeObject(forKey: "ItemId") as! Int
+        self.level = aDecoder.decodeObject(forKey: "Level") as! Int
+    }
+    
+    //编码object
+    func encodeWith(aCoder:NSCoder!) {
+        aCoder.encode(text, forKey: "Text")
+        aCoder.encode(checked, forKey: "Checked")
+        aCoder.encode(dueDate, forKey: "DueDate")
+        aCoder.encode(shouldRemind, forKey: "ShouldRemaind")
+        aCoder.encode(itemId, forKey: "ItemId")
+        aCoder.encode(level, forKey: "Level")
+    }
 }

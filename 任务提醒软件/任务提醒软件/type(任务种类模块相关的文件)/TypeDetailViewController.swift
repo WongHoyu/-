@@ -72,6 +72,9 @@ class TypeDetailViewController: UITableViewController, UITextFieldDelegate, Prot
         
         //还原成添加状态
         onAddType()
+        
+        //保存数据
+        todoModel.saveData()
     }
     
     /// 添加分类方法
