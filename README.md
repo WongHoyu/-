@@ -1,5 +1,5 @@
 # - 第一次将项目提交到Github上
-## - swift语言实践晋级第6章
+## - swift语言实践晋级第6章  Swift4.0版本！！书本是swift2.0，太老了。
 ### 三周完成这个项目 现在是第一周！
 #### 不会写markdown，很抱歉
 + 之前说的第一次点击进入编辑页面无法获取数据已经解决，在TypeDetailViewController的viewDidlog()里添加onUpdate()
@@ -37,4 +37,16 @@ func addItem(item: TodoItem) {
         //我添加了下面的方法，数据就会在跳转到这个界面时更新数据
         self.tableView.reloadData()
     }
+```  
+
++ 时间bug修好了！原本的代码是写成这样的！  
+
+```Swift  
+    //日期样式    
+    formatter.dateFormat = "YYYY年 MM月 DD日 HH:mm:ss"    
+```  
++ 注意，写错的是`DD日`，因为日期格式化需要用小写，修改版本如下:  
+```Swift  
+    //日期样式, 修改后    
+    formatter.dateFormat = "YYYY年 MM月 dd日 HH:mm:ss"  
 ```
