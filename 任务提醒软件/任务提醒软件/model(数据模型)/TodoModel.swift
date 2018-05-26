@@ -84,8 +84,16 @@ class TodoModel: NSObject {
         }
     }
     
+    /// 获得itrmid
     class func nextTodoItemId() -> Int {
-        return 0
+        let userDefaults = UserDefaults.standard
+        //获取ChecklistItemId值
+        let itemId = userDefaults.integer(forKey: "todoItemId")
+        //+1后保存ChecklistItemId值
+        userDefaults.set(itemId + 1, forKey: "todoItemId")
+        //强制要求userDefaults立即保存
+        userDefaults.synchronize()
+        return itemId
     }
     
     /// 增加分类的方法
@@ -95,6 +103,14 @@ class TodoModel: NSObject {
         typeList.append(type)
     }
     
+    /// 对list进行排序
+    func sortLists() {
+        typeList.sort(by: onSort(s1:s2:))
+    }
+    
+    func onSort(s1:TypeItem, s2:TypeItem) -> Bool {
+        return s1.name > s2.name
+    }
 
 }
 
