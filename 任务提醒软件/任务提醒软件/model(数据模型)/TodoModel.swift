@@ -18,22 +18,22 @@ class TodoModel: NSObject {
         print("沙盒文件夹路径: \(documentsDirectory())")
         print("数据文件路径: \(dataFilePath())")
         //初始化模拟数据
-        //onCreateData()
-        loadData()
+        onCreateData()
+//        loadData()
     }
     
-//    /// 创建模拟数据
-//    func onCreateData() {
-//        for i in 1...10 {
-//            let name = "任务: \(i)"
-//            let type = TypeItem(name: name)
-//            for j in 0...4 {
-//                let todo = TodoItem(text: "任务清单: \(j)", checked: false, dueDate: Date(), shouldRemind: true, level: 0)
-//                type.items.append(todo)
-//            }
-//            typeList.append(type)
-//        }
-//    }
+    /// 创建模拟数据
+    func onCreateData() {
+        for i in 1...10 {
+            let name = "任务: \(i)"
+            let type = TypeItem(name: name)
+            for j in 0...4 {
+                let todo = TodoItem(text: "任务清单: \(j)", checked: false, dueDate: Date(), shouldRemind: true, level: 0)
+                type.items.append(todo)
+            }
+            typeList.append(type)
+        }
+    }
     
     /// 获取沙盒路径
     func documentsDirectory() -> String {
@@ -54,6 +54,7 @@ class TodoModel: NSObject {
         //声明一个归档处理对象
         let archiver = NSKeyedArchiver(forWritingWith: data)
         //将lists以对应Checklist关键字进行编码
+        
         archiver.encode(typeList, forKey: "todolist")
         //编码结束
         archiver.finishEncoding()

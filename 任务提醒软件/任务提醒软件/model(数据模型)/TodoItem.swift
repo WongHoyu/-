@@ -62,4 +62,17 @@ class TodoItem: NSObject {
         aCoder.encode(itemId, forKey: "ItemId")
         aCoder.encode(level, forKey: "Level")
     }
+    
+    /// 发送通知消息
+    func scheduleNotification() {
+        /*
+         那dueDate和NSDate.date比较，如果结果是OrderedAscending，
+         表示dueDate的时间比当前早，即过期，不需要再提醒
+         */
+        //OrderedDescending 保存的dueDate比当前时间晚
+        //OrderedSame 保存的dueDate与当前时间相同
+        if self.shouldRemind && (self.dueDate.compare(Date.init()) != ComparisonResult.orderedAscending) {
+            print("当前任务时间到")
+        }
+    }
 }

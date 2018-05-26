@@ -59,6 +59,8 @@ class TodoDetailController: UITableViewController, ProtocolLevel, UITextFieldDel
         }
         
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+        todoModel.saveData()
+        todoItem.scheduleNotification()
     }
     
     // MARK: - override

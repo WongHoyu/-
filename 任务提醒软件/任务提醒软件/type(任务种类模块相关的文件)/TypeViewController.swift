@@ -129,7 +129,6 @@ class TypeViewController: UITableViewController {
         
         //保存数据
         todoModel.saveData()
-        
         return [deleteAction, editAction]
     }
     

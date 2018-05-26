@@ -37,7 +37,7 @@ class TypeItem: NSObject {
     
     //从nsobject解析回来
     init(coder aDecoder:NSCoder!) {
-        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.name = aDecoder.decodeObject(forKey: "Name") as! String
         self.items = aDecoder.decodeObject(forKey: "Items") as! [TodoItem]
         self.icon = aDecoder.decodeObject(forKey: "icon") as! String
     }

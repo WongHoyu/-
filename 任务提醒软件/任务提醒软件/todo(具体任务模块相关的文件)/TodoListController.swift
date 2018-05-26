@@ -52,11 +52,11 @@ class TodoListController: UITableViewController, ProtocolTodoDetail {
         
         let indexPaths = [indexPath]
         
-        //保存数据
-        todoModel.saveData()
-        
         //通知视图删除的数据，同时显示删除动画
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        //保存数据
+        todoModel.saveData()
     }
     
     //改变滑动删除显示的删除文字
