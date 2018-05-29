@@ -1,8 +1,9 @@
 # - 第一次将项目提交到Github上
 ## - swift语言实践晋级第6章  Swift4.0版本！！书本是swift2.0，太老了。
-### 三周完成这个项目 2018年5月26日提交！
+### 三周完成这个项目 2018年5月26日提交！很抱歉，任务提醒软件最后没有完成，以后有空可能才有会写完最后的代码。核心功能没完成到。
 #### 不会写markdown，很抱歉
-+ 之前说的第一次点击进入编辑页面无法获取数据已经解决，在TypeDetailViewController的viewDidlog()里添加onUpdate()
+
++ 之前说的第一次点击进入编辑页面无法获取数据已经解决，在TypeDetailViewController的viewDidlog()里添加onUpdate()    
 
 + 书本代码bug: 在TypeDetailViewController类中,进入`添加`页面，点击确认后是无法跟新数据的。  
   后来我把else注释掉，就可以无论是编辑还是添加任务，都需要reloadData()->跟新数据了。  
